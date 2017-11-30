@@ -1,0 +1,118 @@
+Last login: Wed Nov 29 16:40:59 on console
+Doris-MacBook-Air:~ d_lehner$ ls
+24.mp4				Movies
+Desktop				Music
+Documents			Pictures
+Downloads			Public
+H-plan.docx			Raphi_GB.mp4
+Library				Schatz
+Liste.docx			Schule
+Mathe-HÜ.xlsx			Skype.app
+Microsoft Excel			Üben
+Microsoft PowerPoint		coding-assignment-2-dorlilein
+Microsoft Word			lottery
+Doris-MacBook-Air:~ d_lehner$ gprolog
+GNU Prolog 1.4.4 (64 bits)
+Compiled Apr 23 2013, 17:26:17 with /opt/local/bin/gcc-apple-4.2
+By Daniel Diaz
+Copyright (C) 1999-2013 Daniel Diaz
+| ?- [user].
+compiling user for byte code...
+parent(adam, john).
+parent(eve, john).
+parent(eve, lisa).
+parent(john, anne).
+parent(john, pat).
+parent(pat, jacob).
+parent(carol, jacob).
+
+user compiled, 8 lines read - 737 bytes written, 21003 ms
+
+(1 ms) yes
+| ?- parent(adam,x).
+
+no
+| ?- parent(adam,X).
+
+X = john
+
+yes
+| ?- [user].
+compiling user for byte code...
+ancestor(X, Z) :- parent(X, Z).
+ancestor(X, Z) :- parent(X, Y), ancestor(Y, Z).
+
+user compiled, 3 lines read - 442 bytes written, 12558 ms
+
+(1 ms) yes
+| ?- ancestor(pat,X).
+
+X = jacob ? 
+
+yes
+| ?- [user].
+compiling user for byte code...
+head([Head | Tail], Head).
+user:1: warning: singleton variables [Tail] for head/2
+tail([Head | Tail], Tail).
+user:2: warning: singleton variables [Head] for tail/2
+head([Head | _], Head).
+user:3: warning: discontiguous predicate head/2 - clause ignored
+tail([_ | Tail], Tail).
+user:4: warning: discontiguous predicate tail/2 - clause ignored
+
+isMember(X, [X | _]).                        
+isMember(X, [_ | Tail]) :- isMember(X, Tail).
+concatenate([], L, L).
+concatenate([H|T], L, [H|ExtendedTail]) :- concatenate(T, L, ExtendedTail).
+concatenate(Before, [wed | After], [mon, tue, wed, thu, fri]).
+user:10: warning: singleton variables [Before,After] for concatenate/3
+
+user compiled, 11 lines read - 1446 bytes written, 69033 ms
+
+(2 ms) yes
+| ?- After = 
+After = [thu,fri].
+uncaught exception: error(syntax_error('user_input:27 (char:7) . or operator expected after expression'),read_term/3)
+| ?- [user].
+compiling user for byte code...
+head([Head | _], Head).
+tail([_ | Tail], Tail).
+isMember(X, [X | _]).
+isMember(X, [_ | Tail]) :- isMember(X, Tail).
+
+user compiled, 5 lines read - 706 bytes written, 67837 ms
+
+(1 ms) yes
+| ?- isMember(X,Y).
+
+Y = [X|_] ? y
+Action (; for next solution, a for all solutions, RET to stop) ? 
+
+yes
+| ?- [user].
+compiling user for byte code...
+concatenate([], L, L).
+concatenate([H|T], L, [H|ExtendedTail]) :- concatenate(T, L, ExtendedTail).
+concatenate(Before, [wed | After], [mon, tue, wed, thu, fri]).
+user:3: warning: singleton variables [Before,After] for concatenate/3
+
+user compiled, 4 lines read - 805 bytes written, 28157 ms
+
+(2 ms) yes
+| ?- After = [thu,X].
+
+After = [thu,X]
+
+yes
+| ?- After = [thu,fri].
+
+After = [thu,fri]
+
+yes
+| ?- Before = [mon,tue].
+
+Before = [mon,tue]
+
+yes
+| ?- 

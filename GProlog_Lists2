@@ -1,0 +1,35 @@
+Last login: Thu Nov 30 20:25:18 on ttys000
+Doris-MacBook-Air:~ d_lehner$ gprolog
+GNU Prolog 1.4.4 (64 bits)
+Compiled Apr 23 2013, 17:26:17 with /opt/local/bin/gcc-apple-4.2
+By Daniel Diaz
+Copyright (C) 1999-2013 Daniel Diaz
+| ?- [user].
+compiling user for byte code...
+head([Head | _], Head).
+tail([_ | Tail], Tail).
+concatenate([], L, L).
+concatenate([H|T], L, [H|ExtendedTail]) :- concatenate(T, L, ExtendedTail).
+                                                                           
+
+user compiled, 6 lines read - 775 bytes written, 186389 ms
+
+(2 ms) yes
+| ?- [user].
+compiling user for byte code...
+isMember(E, [E | _]).
+isMember(E, [_ | Tail]) :- isMember(E, Tail).
+
+user compiled, 3 lines read - 378 bytes written, 94375 ms
+
+(2 ms) yes
+| ?- head.   
+uncaught exception: error(existence_error(procedure,head/0),top_level/0)
+| ?- head[X].
+uncaught exception: error(syntax_error('user_input:11 (char:5) . or operator expected after expression'),read_term/3)
+| ?- hea(?[Head | X],Head).
+uncaught exception: error(syntax_error('user_input:12 (char:7) , or ) expected'),read_term/3)
+| ?- head([Head | X],Head). 
+
+(1 ms) yes
+| ?- 
